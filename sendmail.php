@@ -15,23 +15,23 @@ $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
 $comments = filter_var($_POST['comments'], FILTER_SANITIZE_STRING);
 
-	$site_owners_email = 'hello@audemedia.com'; // Replace this with your own email address
-	$site_owners_name = 'GoodGrowth'; // replace with your name
+	$site_owners_email = 'contato@contatoscontabilidade.com.br'; // Replace this with your own email address
+	$site_owners_name = 'Contatos Contabilidade'; // replace with your name
 
 	if (strlen($name) < 2) {
-		$error['name'] = "Please enter your name";
+		$error['name'] = "Digite seu nome";
 	}
 
 	if (!preg_match('/^[a-z0-9&\'\.\-_\+]+@[a-z0-9\-]+\.([a-z0-9\-]+\.)*+[a-z]{2}/is', $email)) {
-		$error['email'] = "Please enter a valid email address";
+		$error['email'] = "Digite um e-mail válido";
 	}
 
 	if (strlen($phone) < 2) {
-		$error['phone'] = "Please enter your phone number";
+		$error['phone'] = "Digite seu número de telefone";
 	}
 
 	if (strlen($comments) < 3) {
-		$error['comments'] = "Please leave a comment.";
+		$error['comments'] = "Digite uma mensagem";
 	}
 
 	if (!$error) {
