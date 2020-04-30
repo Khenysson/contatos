@@ -1188,14 +1188,14 @@ blockquote{
 
 
 a:link {
-  color: BlueViolet;
+  color: white;
   text-decoration: none;
 }
-a:visited {
-  color: green;
-}
+/* a:visited {
+  color: BLUE;
+} */
 a:hover {
-  color:DarkOrchid;
+  color: #296dab;
   text-decoration: underline;
 }
 a:active {
