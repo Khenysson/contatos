@@ -15,7 +15,7 @@ $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
 $comments = filter_var($_POST['comments'], FILTER_SANITIZE_STRING);
 
-	$site_owners_email = 'contato@contatoscontabilidade.com.br'; // Replace this with your own email address
+	$site_owners_email = 'atendimento@contatoscontabilidade.com.br'; // Replace this with your own email address
 	$site_owners_name = 'Contatos Contabilidade'; // replace with your name
 
 	if (strlen($name) < 2) {
@@ -34,6 +34,7 @@ $comments = filter_var($_POST['comments'], FILTER_SANITIZE_STRING);
 		$error['comments'] = "Digite uma mensagem";
 	}
 
+
 	if (!$error) {
 
 		require_once('phpMailer/class.phpmailer.php');
@@ -41,13 +42,13 @@ $comments = filter_var($_POST['comments'], FILTER_SANITIZE_STRING);
 		$mail->CharSet = "UTF-8";
 		$mail->From = $email;
 		$mail->FromName = $name;
-		$mail->Subject = "Contact Form";
+		$mail->Subject = "Contato de " . $name . " via site." ;
 		$mail->AddAddress($site_owners_email, $site_owners_name);
 		$mail->IsHTML(true);
-		$mail->Body = '<b>Name:</b> '. $name .'<br/><b>E-mail:</b> '. $email . '<br/><b>Phone Number:</b> '. $phone .'<br/><br/>' . $comments;
+		$mail->Body = '<b>Nome:</b> '. $name .'<br/><b>E-mail:</b> '. $email . '<br/><b>WhatsApp:</b> '. $phone .'<br/><br/>' . $comments;
 		$mail->Send();
 
-		echo "<div class='alert alert-success'  role='alert'>Thanks " . $name . ". Your message has been sent.</div>";
+		echo "<div class='alert alert-success'  role='alert'>Obrigado " . $name . ". Sua mensagem oi enviada!</div>";
 
 	} # end if no error
 	else {
@@ -60,4 +61,7 @@ $comments = filter_var($_POST['comments'], FILTER_SANITIZE_STRING);
 		echo $response;
 	} # end if there was an error sending
 
+	if($_POST) {
+		
+   	}
 	?>
